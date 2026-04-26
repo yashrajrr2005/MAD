@@ -18,6 +18,7 @@ Each experiment includes:
 
 | Exp | Title | Guide | Code | Folder | Type |
 |-----|-------|-------|------|--------|------|
+| 1 | Flutter Installation | ✓ | - | - | Setup |
 | 2 | Flutter UI Basics | ✓ | ✓ | `Exp2_ui_app/` | Flutter |
 | 3-4 | Flutter Layouts | ✓ | ✓ | `Exp3_or_4_layout_app/` | Flutter |
 | 5 | Flutter Form Widgets | ✓ | ✓ | `Exp5_form_app/` | Flutter |
@@ -128,6 +129,7 @@ flutter run
 
 ## ✨ Quick Navigation
 
+- [Flutter Installation Guide](Exp_1%20Flutter%20installation%20Guide.txt) - Setup instructions
 - [Calculator Flutter Project](calculator%20flutter/) - Full working Flutter app
 - [E-commerce PWA](ecommerce-app/) - Progressive Web App
 - [UI App Project](Exp2_ui_app/) - Flutter UI basics

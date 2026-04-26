@@ -1,0 +1,59 @@
+# Experiment 1: Flutter Installation Guide
+
+This guide covers two common ways to install Flutter on your system.
+
+---
+
+## Method 1: Manual Installation via Flutter Website (Recommended)
+
+This method gives you more control over where the SDK is located.
+
+1. **Download the Flutter SDK**:
+   - Go to the [Flutter official website](https://docs.flutter.dev/get-started/install).
+   - Select your operating system (Windows, macOS, or Linux).
+   - Download the latest stable version of the Flutter SDK zip file.
+
+2. **Extract the SDK**:
+   - Create a folder like `C:\src` (on Windows) or `~/development` (on macOS/Linux).
+   - Extract the zip file into that folder. (Avoid folders like `C:\Program Files` as they require admin privileges).
+
+3. **Update System PATH**:
+   - **Windows**: Search for "Edit the system environment variables" > "Environment Variables" > Select "Path" under User Variables > "Edit" > "New" > Add the full path to the `flutter\bin` folder.
+   - **macOS/Linux**: Add `export PATH="$PATH:[PATH_TO_FLUTTER_DIRECTORY]/flutter/bin"` to your shell configuration file (e.g., `.zshrc` or `.bashrc`).
+
+4. **Verify Installation**:
+   - Open a new terminal/command prompt.
+   - Run: `flutter doctor`
+   - This command checks your environment and displays a report of the status of your installation.
+
+---
+
+## Method 2: Installation via VS Code (Using Extensions)
+
+VS Code provides a more automated way to set up Flutter.
+
+1. **Install VS Code**:
+   - Download and install [Visual Studio Code](https://code.visualstudio.com/).
+
+2. **Install Flutter Extension**:
+   - Open VS Code.
+   - Click on the **Extensions** icon (or press `Ctrl+Shift+X`).
+   - Search for "Flutter" and click **Install**. (This will automatically install the Dart extension as well).
+
+3. **Automated SDK Setup**:
+   - Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`).
+   - Type "Flutter: New Project" and press Enter.
+   - If Flutter is not detected, VS Code will show a popup asking to **"Download SDK"**.
+   - Click it, and VS Code will guide you through downloading and selecting a folder for the SDK.
+
+4. **Finish Setup**:
+   - Once the download is complete, VS Code will point to the new SDK.
+   - You can then run `flutter doctor` in the integrated terminal to ensure everything is correct.
+
+---
+
+## Next Steps
+
+- **Android Setup**: Install Android Studio to get the Android SDK and Emulator.
+- **Web Setup**: Ensure you have Chrome or Edge installed.
+- **Run Your First App**: Use `flutter create my_app` to start coding!
