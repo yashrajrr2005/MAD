@@ -21,7 +21,7 @@ Each experiment includes:
 | 2 | Flutter UI Basics | ✓ | ✓ | `Exp2_ui_app/` | Flutter |
 | 3-4 | Flutter Layouts | ✓ | ✓ | `Exp3_or_4_layout_app/` | Flutter |
 | 5 | Flutter Form Widgets | ✓ | ✓ | `Exp5_form_app/` | Flutter |
-| 6 | XML & Android Studio | ✓ | ✓ | - | Android |
+| 6 | XML & Android Studio | ✓ | ✓ | `xml_app_1/` | Android |
 | 7 | JSON & File Handling | ✓ | ✓ | `Exp7_json_app/` & `Experiment 7 Include File and Json data in flutter/` | Flutter |
 | 9 | E-commerce PWA | ✓ | ✓ | `ecommerce-app/` | Web/PWA |
 | 10 | Google Lighthouse | ✓ | - | - | Testing |
@@ -59,6 +59,13 @@ flutter run
 ```bash
 cd Exp5_form_app/
 flutter run
+```
+
+#### Experiment 6 - XML App
+```bash
+cd xml_app_1/
+# Open in Android Studio or run via Gradle
+./gradlew assembleDebug
 ```
 
 #### Experiment 7 - JSON App
@@ -127,4 +134,5 @@ flutter run
 - [Layout App Project](Exp3_or_4_layout_app/) - Flutter layouts
 - [Form App Project](Exp5_form_app/) - Form widgets
 - [JSON App Project](Exp7_json_app/) - JSON handling  
+- [XML Android Project](xml_app_1/) - Native Android XML UI
 
