@@ -1,0 +1,49 @@
+Experiment 9: Push E-commerce PWA to GitHub Pages
+
+Steps:
+
+
+(optional)
+git -- version
+
+1. Open Visual Studio Code
+
+2. Open terminal (Ctrl + *)
+
+3. Navigate to your project folder (e-commerce app is already present in the current repo no need to rebuild the pwa)
+cd ecommerce-app
+
+4. Initialize Git repository
+git init
+
+5. Add all project files
+git add .
+
+6. Commit files
+git commit -m "E-commerce PWA ready"
+
+7. Create a new repository on GitHub (ecommerce-pwa)
+
+8. Copy repository URL
+
+9. Link local repo to GitHub (You need to create your own repo on github)
+git remote add origin https://github.com/username/ecommerce-pwa.git 
+
+10. Push code to GitHub
+git branch -M main
+git push -u origin main
+
+11. Open repository on GitHub
+
+12. Go to Settings -> Pages
+
+13. Under Source
+Select branch: main
+Folder: /root
+
+14. Click Save (It can take upto few minutes to deploy mine took 10 minutes to deploy) 
+eg: git page link      
+https://yashrajrr2005.github.io/yashraj-ecommerce-app/
+
+15. Open your deployed site
+https://username.github.io/ecommerce-pwa 

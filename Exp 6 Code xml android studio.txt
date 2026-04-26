@@ -1,0 +1,79 @@
+Experiment 6: Develop Android App using XML
+
+---------------------------------------
+File: activity_main.xml
+Location: app → res → layout
+---------------------------------------
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Form"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"/>
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Phone"
+        android:inputType="phone"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
+
+
+---------------------------------------
+File: MainActivity.java
+Location: app → java → com.example.xml_app
+---------------------------------------
+
+package com.example.xml_app;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_main);
+
+        Button btn = findViewById(R.id.button);
+
+        btn.setOnClickListener(v ->
+            Toast.makeText(this, "Submitted", Toast.LENGTH_SHORT).show()
+        );
+    }
+}
+
+---------------------------------------
+Result:
+Android app is created using XML layout and button click shows a Toast message.
+---------------------------------------

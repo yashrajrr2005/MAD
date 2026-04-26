@@ -1,0 +1,29 @@
+Experiment: Install Google Lighthouse & Generate Report
+
+Steps:
+
+1. Open Google Chrome
+2. Open your deployed website
+(GitHub Pages link)
+3. Press F12 to open Developer Tools
+4. Go to Lighthouse tab
+5. Select categories
+. Performance
+Accessibility
+. Best Practices
+
+· SEO
+
+6. Select device type
+. Mobile or Desktop
+7. Click "Analyze page load"
+8. Wait for report to generate
+9. After report appears
+Click "Export" (top right)
+10. Select
+
+· Save as HTML (recommended)
+OR
+
+. Save as JSON
+11. Choose location and save file
