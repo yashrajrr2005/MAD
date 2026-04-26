@@ -20,6 +20,8 @@ class _HomePageState extends State<HomePage> {
             Image.network(
               'https://images.pexels.com/photos/36430583/pexels-photo-36430583.jpeg',
               height: 150,
+              errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.image_not_supported, size: 80),
             ),
             const SizedBox(height: 10),
             Padding(

@@ -1,4 +1,13 @@
-Experiment 6: Include File & JSON Data in Flutter
+Experiment 7: Include File & JSON Data in Flutter
+
+Folder name : Experiment 7 Code Files only not full project
+Purpose is to give the code which we have to copy paste
+
+
+Folder name : Exp7_json_app
+Purpose is to five full project code in case of confusion
+
+
 
 Steps:
 
@@ -7,7 +16,7 @@ flutter doctor
 
 1. Open Visual Studio Code
 
-2. Open terminal (Ctrl + )
+2. Open terminal (Ctrl + `)
 
 3. Run the following commands
 
