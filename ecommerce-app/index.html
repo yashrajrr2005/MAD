@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2f6f73">
+  <title>ShopEasy</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">E-commerce PWA</p>
+      <h1>ShopEasy</h1>
+    </div>
+    <div class="cart-pill" aria-live="polite">
+      Cart: <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="toolbar" aria-label="Cart summary">
+      <strong>Total: Rs. <span id="cart-total">0</span></strong>
+      <button id="clear-cart" type="button">Clear Cart</button>
+    </section>
+
+    <section id="products" class="product-grid" aria-label="Products"></section>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+</body>
+</html>

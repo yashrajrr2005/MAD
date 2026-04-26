@@ -1,0 +1,129 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7f6;
+  --panel: #ffffff;
+  --text: #1d2525;
+  --muted: #64706f;
+  --brand: #2f6f73;
+  --brand-dark: #225357;
+  --line: #dfe6e4;
+  --accent: #d98c3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 14px;
+  font: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--brand);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--brand-dark);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px clamp(16px, 5vw, 48px);
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 3.5rem);
+}
+
+main {
+  width: min(1060px, calc(100% - 32px));
+  margin: 24px auto 48px;
+}
+
+.cart-pill,
+.toolbar {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.cart-pill {
+  flex: 0 0 auto;
+  padding: 12px 14px;
+  font-weight: 700;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.product {
+  display: grid;
+  gap: 10px;
+  min-height: 190px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.product h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.product p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.price {
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+@media (max-width: 560px) {
+  .app-header,
+  .toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

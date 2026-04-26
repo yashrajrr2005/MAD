@@ -1,0 +1,43 @@
+Experiment 6: Develop Android App using XML (Android Studio)
+
+Steps:
+
+(optional check)
+flutter doctor
+
+1. Open Android Studio
+2. Click File - New - New Project
+
+3. Select " Empty Views Activity " VERY IMPORTANT STEP
+
+4. Click Next
+
+5. Enter project details
+· Name: xml_app
+· Language: Java
+· Minimum SDK: default
+
+6. Click Finish and wait for project to load
+
+7. Open layout file
+app res -> layout -> activity_main.xml
+
+8. Switch to Code view
+
+9. Delete default XML code
+
+10. Paste the required XML layout code
+
+11. Save the file (Ctrl + S)
+
+12. Open
+app - java > com.example.xml_app -> MainActivity.java
+
+13. Inside onCreate() method, add
+setContentView(R.layout.activity_main);
+
+14. Connect Android device OR start emulator
+
+15. Click Run
+
+button
