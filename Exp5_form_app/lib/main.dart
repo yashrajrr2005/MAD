@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: MyForm()));
+
+class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
+  @override
+  State<MyForm> createState() => _MyFormState();
+}
+
+class _MyFormState extends State<MyForm> {
+  final k = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext c) => Scaffold(
+        appBar: AppBar(title: const Text("Form")),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: k,
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "Name"),
+                  validator: (v) => v!.isEmpty ? "Enter name" : null,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "Phone"),
+                  keyboardType: TextInputType.phone,
+                  validator: (v) =>
+                      v!.length < 10 ? "Invalid phone" : null,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "DOB"),
+                  validator: (v) => v!.isEmpty ? "Enter DOB" : null,
+                ),
+                const SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    if (k.currentState!.validate()) {
+                      ScaffoldMessenger.of(c).showSnackBar(
+                        const SnackBar(
+                          content: Text("Processing Data"),
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text("Submit"),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+}

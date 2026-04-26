@@ -1,0 +1,45 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MaterialApp(home: MyApp()));
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext c) => Scaffold(
+        appBar: AppBar(title: const Text("Layout")),
+        body: Column(children: [
+          Image.network(
+            'https://images.pexels.com/photos/36286811/pexels-photo-36286811.jpeg',
+            height: 300,
+            width: double.infinity,
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              ColoredBox(
+                color: Colors.blue,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text("Left", style: TextStyle(color: Colors.white)),
+                ),
+              ),
+              ColoredBox(
+                color: Colors.green,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text("Right", style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.all(12),
+            child: Text("Layout using Column, Row & Image",
+                textAlign: TextAlign.center),
+          )
+        ]),
+      );
+}
