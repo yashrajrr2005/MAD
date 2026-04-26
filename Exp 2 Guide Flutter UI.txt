@@ -1,0 +1,34 @@
+Experiment 2: Design Flutter UI using Common Widgets
+
+Steps:
+
+(optional terminal command for checking flutter installation)
+
+flutter doctor 
+
+1. Open Visual Studio Code.
+2. Open terminal (Ctrl + ').
+
+3. Run the following commands in VS Code terminal:
+
+flutter create ui_app
+cd ui_app
+code .
+
+4. A new VS Code window will open.
+
+5. Open file:
+lib -> main.dart
+
+6. Delete default code.
+
+7. Paste the provided "Exp 2 Code".
+
+8. Save file (Ctrl + S).
+
+9. Run project:
+flutter run
+
+10. Press 3 then Enter
+
+11. Check the Selected Browser
