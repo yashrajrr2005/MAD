@@ -1,154 +1,46 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+void main() => runApp(const MaterialApp(home: HomePage()));
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  @override
+  State<HomePage> createState() => _HomePageState();
 }
 
-class MyApp extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+  String name = "", show = "";
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Common Widgets Demo',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter UI Widgets'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {},
-          ),
-        ],
-      ),
-
-      drawer: Drawer(
-        child: ListView(
+  Widget build(BuildContext c) => Scaffold(
+        appBar: AppBar(title: const Text("Flutter UI")),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text(
-                'Navigation Menu',
-                style: TextStyle(color: Colors.white, fontSize: 20),
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
-
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Welcome to Flutter!',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-            ),
-
             Image.network(
               'https://images.pexels.com/photos/36430583/pexels-photo-36430583.jpeg',
-              height: 400,
-            ),
-
-            SizedBox(height: 16),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Elevated'),
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: Text('Outlined'),
-                ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Text'),
-                ),
-              ],
-            ),
-
-            SizedBox(height: 20),
-
-            Card(
-              margin: EdgeInsets.all(16),
-              child: ListTile(
-                leading: Icon(Icons.person),
-                title: Text('John Doe'),
-                subtitle: Text('Flutter Developer'),
-                trailing: Icon(Icons.arrow_forward),
-              ),
-            ),
-
-            Container(
               height: 150,
-              child: ListView(
-                children: [
-                  ListTile(title: Text('Item 1')),
-                  ListTile(title: Text('Item 2')),
-                  ListTile(title: Text('Item 3')),
-                ],
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text("Hello $show",
+                  style: const TextStyle(fontSize: 20)),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: TextField(
+                onChanged: (v) => name = v,
+                decoration: const InputDecoration(hintText: "Enter name"),
               ),
             ),
-
-            SizedBox(height: 20),
-
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'Enter your name',
-                  border: OutlineInputBorder(),
-                ),
-              ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => setState(() => show = name),
+              child: const Text("Submit"),
             ),
           ],
         ),
-      ),
-
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {},
-      ),
-
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
-    );
-  }
+      );
 }

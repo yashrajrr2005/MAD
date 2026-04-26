@@ -1,0 +1,50 @@
+Experiment 6: Include File & JSON Data in Flutter
+
+Steps:
+
+(optional)
+flutter doctor
+
+1. Open Visual Studio Code
+
+2. Open terminal (Ctrl + )
+
+3. Run the following commands
+
+flutter create json_app
+cd json_app
+code .
+
+4. A new VS Code window will open
+
+5. Create folder
+assets
+
+6. Inside assets, create file
+data.json
+
+7. Add student JSON data in data.json
+
+8. Open file
+pubspec.yaml
+
+9. Add assets path (Scroll to botton u can see flutter : paste the following code there just below " uses-material-design: true ")
+	assets:
+	   - assets/data.json
+
+10. Save file
+11. Open file
+lib -> main.dart
+
+12. Delete default code
+
+13. Paste the provided "Exp 7 Code"
+
+14. Save file (Ctrl + S)
+
+15. Run project
+flutter run
+
+16. Press 3 then Enter
+
+17. Check the Selected Browser

@@ -1,77 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyLayoutApp());
-}
+void main() => runApp(const MaterialApp(home: MyApp()));
 
-class MyLayoutApp extends StatelessWidget {
-  const MyLayoutApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter Layout Example"),
-        ),
-        body: Column(
-          children: [
-
-            // Top Image (Pexels)
-            Image.network(
-              'https://images.pexels.com/photos/36286811/pexels-photo-36286811.jpeg',
-              height: 400,
-              width: double.infinity,
-              fit: BoxFit.contain,
-            ),
-
-            const SizedBox(height: 20),
-
-            // Row with two containers
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  color: Colors.blueAccent,
-                  child: const Text(
-                    "Left Box",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
+  Widget build(BuildContext c) => Scaffold(
+        appBar: AppBar(title: const Text("Layout")),
+        body: Column(children: [
+          Image.network(
+            'https://images.pexels.com/photos/36286811/pexels-photo-36286811.jpeg',
+            height: 300,
+            width: double.infinity,
+            fit: BoxFit.contain,
+          ),
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const [
+              ColoredBox(
+                color: Colors.blue,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text("Left", style: TextStyle(color: Colors.white)),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  color: Colors.green,
-                  child: const Text(
-                    "Right Box",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
-            const SizedBox(height: 20),
-
-            // Bottom Text
-            const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text(
-                "This is a simple layout using Column, Row, and Image widgets.",
-                style: TextStyle(fontSize: 16),
-                textAlign: TextAlign.center,
               ),
-            ),
-
-          ],
-        ),
-      ),
-    );
-  }
+              ColoredBox(
+                color: Colors.green,
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Text("Right", style: TextStyle(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
+          const Padding(
+            padding: EdgeInsets.all(12),
+            child: Text("Layout using Column, Row & Image",
+                textAlign: TextAlign.center),
+          )
+        ]),
+      );
 }

@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) =>
+      const MaterialApp(home: HomePage());
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List data = [];
+
+  @override
+  void initState() {
+    super.initState();
+    rootBundle.loadString('assets/data.json').then(
+      (s) => setState(() => data = json.decode(s)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Students")),
+      body: data.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: const [
+                  DataColumn(label: Text("Name")),
+                  DataColumn(label: Text("Age")),
+                  DataColumn(label: Text("Marks")),
+                ],
+                rows: data.map<DataRow>((e) => DataRow(cells: [
+                      DataCell(Text(e['name'].toString())),
+                      DataCell(Text(e['age'].toString())),
+                      DataCell(Text(e['marks'].toString())),
+                    ])).toList(),
+              ),
+            ),
+    );
+  }
+}

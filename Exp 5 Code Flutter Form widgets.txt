@@ -1,121 +1,56 @@
-import 'packagefluttermaterial.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MaterialApp(home: MyForm()));
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyForm extends StatefulWidget {
+  const MyForm({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const appTitle = 'Form Validation Demo';
+  State<MyForm> createState() => _MyFormState();
+}
 
-    return MaterialApp(
-      debugShowCheckedModeBanner false,
-      title appTitle,
-      home Scaffold(
-        appBar AppBar(
-          title const Text(appTitle),
+class _MyFormState extends State<MyForm> {
+  final k = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext c) => Scaffold(
+        appBar: AppBar(title: const Text("Form")),
+        body: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: k,
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "Name"),
+                  validator: (v) => v!.isEmpty ? "Enter name" : null,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "Phone"),
+                  keyboardType: TextInputType.phone,
+                  validator: (v) =>
+                      v!.length < 10 ? "Invalid phone" : null,
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(labelText: "DOB"),
+                  validator: (v) => v!.isEmpty ? "Enter DOB" : null,
+                ),
+                const SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    if (k.currentState!.validate()) {
+                      ScaffoldMessenger.of(c).showSnackBar(
+                        const SnackBar(
+                          content: Text("Processing Data"),
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text("Submit"),
+                ),
+              ],
+            ),
+          ),
         ),
-        body const MyCustomForm(),
-      ),
-    );
-  }
-}
-
-class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({super.key});
-
-  @override
-  StateMyCustomForm createState() = MyCustomFormState();
-}
-
-class MyCustomFormState extends StateMyCustomForm {
-  final _formKey = GlobalKeyFormState();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding const EdgeInsets.all(16.0),
-      child Form(
-        key _formKey,
-        child Column(
-          crossAxisAlignment CrossAxisAlignment.start,
-          children [
-
-             Name Field
-            TextFormField(
-              decoration const InputDecoration(
-                icon Icon(Icons.person),
-                hintText 'Enter your name',
-                labelText 'Name',
-              ),
-              validator (value) {
-                if (value == null  value.isEmpty) {
-                  return 'Please enter your name';
-                }
-                return null;
-              },
-            ),
-
-            const SizedBox(height 10),
-
-             Phone Field
-            TextFormField(
-              decoration const InputDecoration(
-                icon Icon(Icons.phone),
-                hintText 'Enter your phone number',
-                labelText 'Phone',
-              ),
-              keyboardType TextInputType.phone,
-              validator (value) {
-                if (value == null  value.isEmpty) {
-                  return 'Please enter your phone number';
-                }
-                if (value.length  10) {
-                  return 'Phone number must be at least 10 digits';
-                }
-                return null;
-              },
-            ),
-
-            const SizedBox(height 10),
-
-             DOB Field
-            TextFormField(
-              decoration const InputDecoration(
-                icon Icon(Icons.calendar_today),
-                hintText 'Enter your date of birth',
-                labelText 'DOB',
-              ),
-              validator (value) {
-                if (value == null  value.isEmpty) {
-                  return 'Please enter your date of birth';
-                }
-                return null;
-              },
-            ),
-
-            const SizedBox(height 20),
-
-             Submit Button
-            ElevatedButton(
-              onPressed () {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content Text('Processing Data'),
-                    ),
-                  );
-                }
-              },
-              child const Text('Submit'),
-            ),
-
-          ],
-        ),
-      ),
-    );
-  }
+      );
 }
